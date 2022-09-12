@@ -1,11 +1,21 @@
 import Login from "../pages/Login";
-
-import Home from "../pages/Home";
+import Layout from "../pages/Layout";
+import Profile from "@/pages/Profile";
+import Home from "@/pages/Home";
+import Question from "@/pages/Question";
+import Video from "@/pages/Video";
 
 const routes = [
 	{
 		path: "/",
-		element: <Home />,
+		element: <Layout />,
+		children: [
+			{ path: "", element: <Home /> },
+			//{ path: "home", element: <Home /> },
+			{ path: "home/profile", element: <Profile /> },
+			{ path: "home/video", element: <Video /> },
+			{ path: "home/question", element: <Question /> },
+		],
 	},
 	{
 		path: "/login",
