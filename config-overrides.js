@@ -13,13 +13,16 @@ const alias = addWebpackAlias({
 	"@scss": path.resolve(__dirname, "src", "assets", "styles"),
 });
 
-// 移动端布局 - viewport 适配方案
-const viewport = pxToViewport({
-	// 设计稿的宽度
-	viewportWidth: 375,
-	// 不需要将 px 转 vw 的白名单
-	// 说明：该数组中的类名中的 px 不会被转化为 vw。 这些类名可以为任意名称。
-	// selectorBlackList: ['.ignore', '.hairlines']
-});
+// 配置 PostCSS 样式转换插件
+const postcssPlugins = addPostcssPlugins([
+	// 移动端布局 viewport 适配方案
+	pxToViewport({
+		// 视口宽度：可以设置为设计稿的宽度
+		viewportWidth: 375,
+		// 白名单：不需对其中的 px 单位转成 vw 的样式类类名
+		// selectorBlackList: ['.ignore', '.hairlines']
+	}),
+]);
 
-module.exports = override(addPostcssPlugins([viewport]), alias);
+// 导出要进行覆盖的 webpack 配置
+module.exports = override(alias, postcssPlugins);

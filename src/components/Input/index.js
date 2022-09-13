@@ -1,14 +1,35 @@
-import React from "react";
+import classnames from "classnames";
 import styles from "./index.module.scss";
-export default function Input({ extra, onExtraClick, ...rest }) {
+
+const Input = ({
+	type = "text",
+	value,
+	onChange,
+	name,
+	className,
+	placeholder,
+	extra,
+	onExtraClick,
+	...rest
+}) => {
 	return (
-		<div className={styles.root}>
-			<input className="input" {...rest} />
+		<div className={classnames(styles.root, className)}>
+			<input
+				value={value}
+				name={name}
+				className="input"
+				placeholder={placeholder}
+				type={type}
+				onChange={onChange}
+				{...rest}
+			/>
 			{extra && (
-				<div className="extra" onClick={onExtraClick}>
+				<span className="extra" onClick={onExtraClick}>
 					{extra}
-				</div>
+				</span>
 			)}
 		</div>
 	);
-}
+};
+
+export default Input;

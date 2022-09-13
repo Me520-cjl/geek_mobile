@@ -1,0 +1,77 @@
+.root {
+  :global {
+    .wrapper {
+      padding: 0 16px;
+    }
+
+    .feedback-item {
+      padding-top: 15px;
+      .title {
+        margin-bottom: 15px;
+        font-size: 17px;
+        font-weight: 500;
+      }
+    }
+
+    .textarea-wrap {
+      position: relative;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #f7f8fa;
+
+      .textarea {
+        height: 48px;
+        font-size: 14px;
+        line-height: 24px;
+
+        &::placeholder {
+          color: #c8c9cc;
+        }
+      }
+
+      .count {
+        margin-top: 4px;
+        text-align: right;
+        font-size: 12px;
+        color: #999;
+      }
+    }
+
+    .am-image-picker-list {
+      padding: 0;
+      margin-top: 12px;
+    }
+    .am-image-picker-item {
+      background-color: #f7f8fa;
+    }
+
+    .image-picker-desc {
+      color: #969799;
+      font-size: 12px;
+    }
+
+    .am-input-item {
+      background-color: #f7f8fa;
+    }
+
+    .feedback-submit {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 50px;
+      padding-top: 0;
+      overflow: hidden;
+
+      button {
+        display: block;
+        height: 44px;
+        width: 100%;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        background: linear-gradient(to right, #fe4f4f, #fc6627);
+      }
+    }
+  }
+}

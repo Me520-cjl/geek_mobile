@@ -12,9 +12,9 @@ export default function Layout() {
 	// - icon 按钮上显示的图标名称
 	const buttons = [
 		{ id: 1, title: "首页", to: "/", icon: "iconbtn_home" },
-		{ id: 2, title: "问答", to: "/home/question", icon: "iconbtn_qa" },
-		{ id: 3, title: "视频", to: "/home/video", icon: "iconbtn_video" },
-		{ id: 4, title: "我的", to: "/home/profile", icon: "iconbtn_mine" },
+		{ id: 2, title: "问答", to: "/question", icon: "iconbtn_qa" },
+		{ id: 3, title: "视频", to: "/video", icon: "iconbtn_video" },
+		{ id: 4, title: "我的", to: "/profile", icon: "iconbtn_mine" },
 	];
 	// 获取路由历史 history 对象
 	const history = useNavigate();

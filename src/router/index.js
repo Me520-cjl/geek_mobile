@@ -4,6 +4,7 @@ import Profile from "@/pages/Profile";
 import Home from "@/pages/Home";
 import Question from "@/pages/Question";
 import Video from "@/pages/Video";
+import Edit from "@/pages/Profile/Edit";
 
 const routes = [
 	{
@@ -12,15 +13,20 @@ const routes = [
 		children: [
 			{ path: "", element: <Home /> },
 			//{ path: "home", element: <Home /> },
-			{ path: "home/profile", element: <Profile /> },
-			{ path: "home/video", element: <Video /> },
-			{ path: "home/question", element: <Question /> },
+			{
+				path: "profile",
+				element: <Profile />,
+				//children: [{ path: "edit", element: <Edit /> }],
+			},
+			{ path: "video", element: <Video /> },
+			{ path: "question", element: <Question /> },
 		],
 	},
 	{
 		path: "/login",
 		element: <Login />,
 	},
+	{ path: "/profile/edit", element: <Edit /> },
 ];
 
 export default routes;
