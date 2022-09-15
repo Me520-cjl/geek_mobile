@@ -28,7 +28,7 @@ const Textarea = ({
 		setCount(newValue.length);
 
 		// 调用外部传入的事件回调函数
-		//onChange(e);
+		onChange(e);
 	};
 
 	return (
@@ -38,10 +38,9 @@ const Textarea = ({
 				className="textarea"
 				maxLength={maxLength}
 				placeholder={placeholder}
-				value={value}
 				onChange={onValueChange}
-			/>
-
+				value={value}
+			></textarea>
 			{/* 当前字数/最大允许字数 */}
 			<div className="count">
 				{count}/{maxLength}

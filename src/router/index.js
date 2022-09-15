@@ -5,6 +5,7 @@ import Home from "@/pages/Home";
 import Question from "@/pages/Question";
 import Video from "@/pages/Video";
 import Edit from "@/pages/Profile/Edit";
+import Chat from "@/pages/Profile/Chat";
 
 const routes = [
 	{
@@ -27,6 +28,7 @@ const routes = [
 		element: <Login />,
 	},
 	{ path: "/profile/edit", element: <Edit /> },
+	{ path: "/profile/chat", element: <Chat /> },
 ];
 
 export default routes;

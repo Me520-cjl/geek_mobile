@@ -1,5 +1,5 @@
 import http from "@/utils/http";
-import { setTokenInfo } from "@/utils/storage";
+import { setTokenInfo, removeTokenInfo } from "@/utils/storage";
 
 /**
  * 发送短信验证码
@@ -30,5 +30,28 @@ export const login = (params) => {
 		dispatch(saveToken(res.data));
 		// 保存 Token 到 LocalStorage 中
 		setTokenInfo(res.data);
+	};
+};
+
+/**
+ * 将 Token 信息从 Redux 中删除
+ */
+export const clearToken = () => {
+	return {
+		type: "login/clear",
+	};
+};
+
+/**
+ * 登出
+ * @returns thunk
+ */
+export const logout = () => {
+	return (dispatch) => {
+		// 删除 LocalStorage 中的 Token 信息
+		removeTokenInfo();
+
+		// 删除 Redux 中的 Token 信息
+		dispatch(clearToken());
 	};
 };

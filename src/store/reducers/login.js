@@ -10,6 +10,8 @@ export const login = (state = initialState, action) => {
 	switch (type) {
 		case "login/token":
 			return { ...payload };
+		case "login/clear":
+			return {};
 		default:
 			return state;
 	}

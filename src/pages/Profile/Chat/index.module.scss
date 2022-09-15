@@ -6,7 +6,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 46px 0 50px 0;
+  padding: 0;
 
   :global {
     .fixed-header {
@@ -19,7 +19,7 @@
     .chat-list {
       height: 100%;
       overflow-y: scroll;
-      padding: 15px 16px;
+      padding: 25px 16px;
     }
 
     .chat-item {
@@ -63,7 +63,7 @@
       position: fixed;
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: 20px;
       height: 50px;
       padding: 7px 16px;
 
@@ -87,7 +87,7 @@
         top: 50%;
         margin-top: -6.5px;
         margin-left: 10px;
-        font-size: 13px;
+        font-size: 25px;
       }
     }
   }

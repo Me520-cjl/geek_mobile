@@ -23,6 +23,15 @@ export const profile = (state = initialState, action) => {
 				...state,
 				userProfile: { ...payload },
 			};
+		// 修改详情信息中的某个字段
+		case "profile/update":
+			return {
+				...state,
+				userProfile: {
+					...state.userProfile,
+					[payload.name]: payload.value,
+				},
+			};
 
 		// 默认
 		default:

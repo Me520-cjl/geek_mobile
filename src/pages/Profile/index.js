@@ -93,7 +93,9 @@ const Profile = () => {
 						onClick={() => history("/profile/chat")}
 					>
 						<Icon type="iconbtn_xiaozhitongxue" />
-						<div>小智同学</div>
+						<Link to="/profile/chat">
+							<div style={{ color: "black" }}>小智同学</div>
+						</Link>
 					</div>
 				</div>
 			</div>
