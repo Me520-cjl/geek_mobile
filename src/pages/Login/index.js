@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import styles from "./index.module.scss";
 import { useFormik } from "formik";
@@ -12,6 +12,8 @@ import { Toast } from "antd-mobile";
 
 export default function Login() {
 	const navigate = useNavigate();
+	// 获取路由信息 location 对象
+	const location = useLocation();
 	// ...
 	// Formik 表单对象
 	const form = useFormik({
@@ -23,11 +25,20 @@ export default function Login() {
 		// 提交
 		async onSubmit(values) {
 			await dispatch(login(values));
+
+			// 登录后进行页面跳转
+			const { state } = location;
+			if (!state) {
+				// 如果不是从其他页面跳到的登录页，则登录后默认进入首页
+				navigate("/");
+			} else {
+				// 否则跳回到之前访问的页面
+				navigate(state.from);
+			}
 			Toast.show({
 				icon: "success",
 				content: "登录成功",
 			});
-			navigate("/");
 		},
 		validate(values) {
 			const errors = {};

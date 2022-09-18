@@ -4,6 +4,9 @@ import styles from "./index.module.scss";
 import { getUser } from "@/store/actions/profile";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { removeTokenInfo } from "@/utils/storage";
+import { clearToken } from "@/store/actions/login";
+
 const Profile = () => {
 	const dispatch = useDispatch();
 	const history = useNavigate();
@@ -72,7 +75,15 @@ const Profile = () => {
 					</div>
 					<div className="link-item">
 						<Icon type="iconbtn_myworks" />
-						<div>我的作品</div>
+						<div
+							onClick={() => {
+								removeTokenInfo();
+								clearToken();
+								console.log("clear");
+							}}
+						>
+							我的作品
+						</div>
 					</div>
 				</div>
 			</div>
