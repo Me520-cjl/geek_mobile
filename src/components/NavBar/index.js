@@ -1,22 +1,18 @@
-import React from "react";
-import Icon from "@/components/Icon";
+import classnames from "classnames";
 import styles from "./index.module.scss";
 
-// useHistory  useLocation  useParams
-function NavBar({ title, rightContent, onLeftClick }) {
+const NavBar = ({ children, className, rightContent, onLeftClick }) => {
 	return (
-		<div className={styles.root}>
-			{/* 后退按钮 */}
-			<div className="left">
-				<Icon type="iconfanhui" onClick={onLeftClick} />
+		<div className={classnames(styles.root, className)}>
+			<div className="left" onClick={onLeftClick}>
+				<svg className="icon" aria-hidden="true">
+					<use xlinkHref="#iconfanhui"></use>
+				</svg>
 			</div>
-			{/* 居中标题 */}
-			<div className="title">{title}</div>
-
-			{/* 右侧内容 */}
+			<div className="title">{children}</div>
 			<div className="right">{rightContent}</div>
 		</div>
 	);
-}
+};
 
 export default NavBar;

@@ -9,6 +9,7 @@ import { Drawer } from "antd";
 import Channels from "./components/Channels";
 import ArticleList from "./components/ArticleList";
 import FeedbackActionMenu from "./components/Feekback";
+import { useNavigate } from "react-router";
 
 const Home = () => {
 	const dispatch = useDispatch();
@@ -39,6 +40,8 @@ const Home = () => {
 	// 控制频道管理抽屉的显示和隐藏
 	const [drawerVisible, setDrawerVisible] = useState(false);
 
+	const history = useNavigate();
+
 	return (
 		<div className={styles.root}>
 			{/* 举报反馈弹出菜单 */}
@@ -56,7 +59,10 @@ const Home = () => {
 
 			{/* 频道 Tab 栏右侧的两个图标按钮：搜索、频道管理 */}
 			<div className="tabs-opration">
-				<Icon type="iconbtn_search" />
+				<Icon
+					type="iconbtn_search"
+					onClick={() => history("/search")}
+				/>
 				<Icon
 					type="iconbtn_channel"
 					onClick={() => setDrawerVisible(true)}

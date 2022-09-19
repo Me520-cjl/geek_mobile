@@ -1,10 +1,9 @@
 import Icon from "@/components/Icon";
-import { Modal, Button } from "antd-mobile";
+import { Modal } from "antd-mobile";
 import { useState } from "react";
 import styles from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setFeedbackAction } from "@/store/actions/home";
-import { useEffect } from "react";
 
 /**
  * 举报反馈菜单
@@ -15,7 +14,6 @@ const FeedbackActionMenu = () => {
 
 	// 弹框的状态
 	const feedbackAction = useSelector((state) => state.home.feedbackAction);
-	const { visible } = feedbackAction.visible;
 
 	const dispatch = useDispatch();
 
@@ -28,15 +26,6 @@ const FeedbackActionMenu = () => {
 				articleId: 0,
 			})
 		);
-	};
-
-	const onOpen = () => {
-		console.log("666");
-		Modal.alert({
-			title: "带关闭图标的弹窗",
-			content: "666",
-			showCloseButton: true,
-		});
 	};
 
 	return (
