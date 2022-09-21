@@ -31,6 +31,7 @@ import { Drawer } from "antd";
 import CommentInput from "./components/CommentInput";
 import CommentReply from "./components/Reply";
 import Share from "./components/Share";
+import Sticky from "@/components/Sticky";
 
 const Article = () => {
 	const history = useNavigate();
@@ -447,12 +448,21 @@ const Article = () => {
 									{/* 文章评论区 */}
 									<div className="comment" ref={commentRef}>
 										{/* 评论总览信息 */}
-										<div className="comment-header">
-											<span>
-												全部评论（{info.comm_count}）
-											</span>
-											<span>{info.like_count} 点赞</span>
-										</div>
+										<Sticky
+											root={wrapperRef.current}
+											height={51}
+											offset={46}
+										>
+											<div className="comment-header">
+												<span>
+													全部评论（{info.comm_count}
+													）
+												</span>
+												<span>
+													{info.like_count} 点赞
+												</span>
+											</div>
+										</Sticky>
 
 										{info.comm_count === 0 ? (
 											// 没有评论时显示的界面
