@@ -44,8 +44,6 @@ const Home = () => {
 
 	return (
 		<div className={styles.root}>
-			{/* 举报反馈弹出菜单 */}
-			<FeedbackActionMenu />
 			{/* 频道 Tab 栏 */}
 			<Tabs
 				index={tabActiveIndex}
@@ -56,6 +54,8 @@ const Home = () => {
 					<ArticleList key={ch.id} channelId={ch.id} />
 				))}
 			</Tabs>
+			{/* 举报反馈弹出菜单 */}
+			<FeedbackActionMenu />
 
 			{/* 频道 Tab 栏右侧的两个图标按钮：搜索、频道管理 */}
 			<div className="tabs-opration">

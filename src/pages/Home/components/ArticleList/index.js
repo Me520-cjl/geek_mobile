@@ -1,5 +1,6 @@
 import styles from "./index.module.scss";
 import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import http from "@/utils/http";
 import ArticleItem from "@/components/ArticleItem";
 import { useDispatch } from "react-redux";
@@ -56,12 +57,22 @@ const ArticleList = ({ channelId, aid }) => {
 		);
 	};
 
+	// 跳转到文章详情页面
+	const history = useNavigate();
+	const gotoAritcleDetail = (articleId) => {
+		history(`/article/${articleId}`);
+	};
+
 	return (
 		<div className={styles.root}>
 			<div className="articles">
 				{articles.items.map((article) => {
 					return (
-						<div className="article-item" key={article.art_id}>
+						<div
+							className="article-item"
+							key={article.art_id}
+							onClick={() => gotoAritcleDetail(article.art_id)}
+						>
 							<ArticleItem
 								articleId={article.art_id}
 								coverType={article.cover.type}

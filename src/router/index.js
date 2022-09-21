@@ -8,6 +8,7 @@ import Edit from "@/pages/Profile/Edit";
 import Chat from "@/pages/Profile/Chat";
 import Search from "@/pages/Search";
 import Result from "@/pages/Search/Result";
+import Article from "@/pages/Article";
 
 const routes = [
 	{
@@ -33,6 +34,7 @@ const routes = [
 	{ path: "/profile/chat", element: <Chat /> },
 	{ path: "/search", element: <Search /> },
 	{ path: "/search/result", element: <Result /> },
+	{ path: "/article/:id", element: <Article /> },
 ];
 
 export default routes;

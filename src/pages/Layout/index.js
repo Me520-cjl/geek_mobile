@@ -24,33 +24,26 @@ export default function Layout() {
 	return (
 		<div className={styles.root}>
 			<Outlet></Outlet>
-			<div>
-				{/* 区域一：点击按钮切换显示内容的区域 */}
-				<div className="tab-content"></div>
+			{/* 区域二：按钮区域，会使用固定定位显示在页面底部 */}
+			<div className="tabbar">
+				{buttons.map((btn) => {
+					// 判断当前页面路径和按钮路径是否一致，如果一致则表示该按钮处于选中状态
+					const selected = btn.to === location.pathname;
 
-				{/* 区域二：按钮区域，会使用固定定位显示在页面底部 */}
-				<div className="tabbar">
-					{buttons.map((btn) => {
-						// 判断当前页面路径和按钮路径是否一致，如果一致则表示该按钮处于选中状态
-						const selected = btn.to === location.pathname;
-
-						return (
-							<div
-								key={btn.id}
-								className={classnames(
-									"tabbar-item",
-									selected ? "tabbar-item-active" : ""
-								)}
-								onClick={() => history(btn.to)}
-							>
-								<Icon
-									type={btn.icon + (selected ? "_sel" : "")}
-								/>
-								<span>{btn.title}</span>
-							</div>
-						);
-					})}
-				</div>
+					return (
+						<div
+							key={btn.id}
+							className={classnames(
+								"tabbar-item",
+								selected ? "tabbar-item-active" : ""
+							)}
+							onClick={() => history(btn.to)}
+						>
+							<Icon type={btn.icon + (selected ? "_sel" : "")} />
+							<span>{btn.title}</span>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);

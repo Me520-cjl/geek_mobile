@@ -1,0 +1,54 @@
+@import '@scss/hairline.scss';
+
+.root {
+  border-radius: 16px 16px 0 0;
+  background-color: #fff;
+
+  :global {
+    .share-header {
+      height: 43px;
+      padding: 20px 16px 4px 16px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .share-list {
+      display: flex;
+      position: relative;
+      padding: 16px 0;
+      margin: 0 16px;
+
+      &:nth-child(2) {
+        @include hairline(bottom, #efefef);
+      }
+
+      .share-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #646566;
+        font-size: 12px;
+
+        img {
+          width: 48px;
+          height: 48px;
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .share-cancel {
+      line-height: 48px;
+      font-size: 16px;
+      text-align: center;
+
+      &::before {
+        content: ' ';
+        display: block;
+        height: 8px;
+        background-color: #f7f8fa;
+      }
+    }
+  }
+}
